@@ -1,43 +1,60 @@
-const countdown = () => {
-    const endingDate = new Date('2026-06-01T00:00:00Z');
-    const currentDate = new Date();
-    const totalSeconds = (endingDate - currentDate) / 1000;
+// Password Gate
+const password = "love";
+let userPassword = prompt("Enter the password:");
 
-    const days = Math.floor(totalSeconds / 3600 / 24);
-    const hours = Math.floor((totalSeconds / 3600) % 24);
-    const minutes = Math.floor((totalSeconds / 60) % 60);
-    const seconds = Math.floor(totalSeconds % 60);
+if (userPassword !== password) {
+    alert("Access denied!");
+    throw new Error("Access denied!");
+}
 
-    document.getElementById('countdown').innerHTML = `Days: ${days}, Hours: ${hours}, Minutes: ${minutes}, Seconds: ${seconds}`;
-};
+// Love Chart
+function drawLoveChart(loveLevel) {
+    const canvas = document.getElementById('loveChart');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'pink';
+    ctx.fillRect(10, 10, loveLevel * 2, 20); // Simple bar chart
+}
 
-setInterval(countdown, 1000);
+// Countdown Timer
+function startCountdown(seconds) {
+    let countdown = seconds;
+    const timer = setInterval(() => {
+        countdown--;
+        if (countdown <= 0) {
+            clearInterval(timer);
+            alert("Countdown finished!");
+        }
+    }, 1000);
+}
 
-const loveChart = () => {
-    const ctx = document.getElementById('loveChart').getContext('2d');
-    const data = {
-        labels: ['Communication', 'Trust', 'Respect', 'Support', 'Passion'],
-        datasets: [{
-            label: 'Love Metrics',
-            data: [20, 15, 30, 25, 10],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1,
-        }],
-    };
-    new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true },
-            },
-        },
+// Milestones
+const milestones = [
+    { date: new Date("2025-06-01"), event: "First Date" },
+    { date: new Date("2026-03-01"), event: "Anniversary" },
+];
+
+function checkMilestones() {
+    const now = new Date();
+    milestones.forEach(milestone => {
+        if (milestone.date <= now) {
+            alert(`Milestone reached: ${milestone.event}`);
+        }
     });
-};
+}
 
-window.onload = () => {
-    countdown();
-    loveChart();
-};
+// Particles
+function createParticles() {
+    // Add particle creation logic (e.g., using HTML Canvas).
+}
+
+// Confetti Animations
+function launchConfetti() {
+    // Add confetti animation logic.
+}
+
+// Initialize
+drawLoveChart(50);
+startCountdown(10);
+checkMilestones();
+createParticles();
+launchConfetti();
