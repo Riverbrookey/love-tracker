@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micky's Love for Mini 💖</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Quicksand', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a0a1f 0%, #2d1b3d 50%, #1a0a1f 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        header { text-align: center; margin-bottom: 3rem; }
+        header h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #FF6B9D, #B57BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <canvas id="confettiCanvas"></canvas>
+
+    <div id="pwGate">
+        <div class="pw-container">
+            <h2>💖 Password Protected 💖</h2>
+            <form id="pwForm">
+                <input type="text" id="pwInput" placeholder="Enter password...">
+                <button type="submit">Unlock</button>
+            </form>
+            <div id="pwError"></div>
+            <button id="pwHintBtn">Need a hint?</button>
+            <div id="pwHint">💡 Think about what keeps us together...</div>
+        </div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>❤️ Micky's Love for Mini ❤️</h1>
+        </header>
+        <div class="hero-stats">
+            <div class="stat-box">
+                <div class="stat-value" id="heroLove">0</div>
+                <div class="stat-label">Current Love Level</div>
+            </div>
+        </div>
+        <div id="countdown">
+            <div class="countdown-timer">
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="cdDays">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+            </div>
+        </div>
+        <canvas id="loveChart"></canvas>
+        <button class="btn" id="confettiBtn">🎉 Celebrate!</button>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
